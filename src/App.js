@@ -148,7 +148,6 @@ function Page6(props) {
 }
 
 function Booking(props) {
-  const [isBooked, setBook] = useState(false);
   const [page, setPage] = useState(3);
   const [gender, setGender] = useState("");
   const [hostelNo, setHostelNo] = useState(0);
@@ -159,7 +158,6 @@ function Booking(props) {
 
   const handleFinalBtn = () => {
     setPage(6);
-    setBook(true);
     const booking = {
       gender: gender,
       hostelNo: hostelNo,
@@ -188,28 +186,28 @@ function Booking(props) {
     setPage(4);
   }
 
-  if (localBooking && page == 3) {
+  if (localBooking && page === 3) {
 
 
     return <Page2 name={props.name} gender={localBooking.gender} hostelNo={localBooking.hostelNo} floor={localBooking.floor} room={localBooking.room} />;
   }
 
-  else if (page == 3) {
+  else if (page === 3) {
     return (
       <Page3 handleGender={handleGender} />
     );
   }
-  else if (page == 4) {
+  else if (page === 4) {
     return (
       <Page4 gender={gender} handleHostel={handleHostel} />
     );
   }
-  else if (page == 5) {
+  else if (page === 5) {
     return (
       <Page5 handleFloor={handleFloor} handleRoom={handleRoom} showFinalBtn={showFinalBtn} handleFinalBtn={handleFinalBtn} />
     );
   }
-  else if (page == 6) {
+  else if (page === 6) {
     return (
       <Page6 gender={gender} hostelNo={hostelNo} floor={floor} room={room} />
     )
